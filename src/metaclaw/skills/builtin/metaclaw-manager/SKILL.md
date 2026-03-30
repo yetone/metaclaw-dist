@@ -37,7 +37,7 @@ Use EditFile to modify specific settings in `metaclaw.toml`. Common modification
 **Change LLM model:**
 ```toml
 [llm]
-model = "claude"  # Options: claude, gpt4, gemini, azure, huggingface, or full litellm model string
+model = "claude"  # Options: claude, gpt4, gemini, azure, huggingface, or full provider/model string
 ```
 
 **Adjust agent behavior:**
@@ -110,8 +110,9 @@ pip show metaclaw
 
 **Test LLM connection:**
 ```python
-import litellm
-litellm.completion(model="...", messages=[{"role": "user", "content": "test"}])
+from metaclaw.llm import LLMProvider
+provider = LLMProvider(model="claude")
+# await provider.chat(messages=[{"role": "user", "content": "test"}])
 ```
 
 ## Guidelines

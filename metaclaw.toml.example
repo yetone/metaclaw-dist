@@ -2,7 +2,7 @@
 # Copy to metaclaw.toml and customize
 
 [llm]
-# Model alias or full litellm model string
+# Model alias or full provider/model string
 # Aliases: claude, gpt4, gemini, azure, huggingface
 # Full: anthropic/claude-sonnet-4-20250514, openai/gpt-4o, etc.
 model = "claude"

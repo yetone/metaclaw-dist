@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-# User-friendly aliases -> litellm model strings
+# User-friendly aliases -> provider/model strings
 MODEL_ALIASES: dict[str, str] = {
     # Anthropic
     "claude": "anthropic/claude-sonnet-4-20250514",
@@ -65,7 +65,7 @@ _CAPABILITIES: dict[str, ModelCapabilities] = {
 
 
 def resolve_model(model_str: str) -> str:
-    """Resolve a model alias to a litellm model string."""
+    """Resolve a model alias to a provider/model string."""
     return MODEL_ALIASES.get(model_str, model_str)
 
 
