@@ -1,0 +1,93 @@
+# MetaClaw Configuration
+# Copy to metaclaw.toml and customize
+
+[llm]
+# Model alias or full litellm model string
+# Aliases: claude, gpt4, gemini, azure, huggingface
+# Full: anthropic/claude-sonnet-4-20250514, openai/gpt-4o, etc.
+model = "claude"
+
+# Environment variable name containing your API key
+api_key_env = "ANTHROPIC_API_KEY"
+
+# Optional: override max tokens and temperature
+# max_tokens = 4096
+# temperature = 0.0
+
+# Optional: custom API base URL (for proxies or self-hosted models)
+# base_url = ""
+
+[agent]
+# Maximum iterations per conversation turn
+max_iterations = 25
+
+# Working directory for file operations
+working_directory = "."
+
+# Sandbox mode: "none", "basic" (blocked dangerous commands), "docker"
+sandbox = "basic"
+
+# Maximum file read size
+max_read_size_kb = 100
+max_read_lines = 2000
+
+[skills]
+# Auto-discover skills from standard paths
+auto_discover = true
+
+# Allow agent to create new skills from experience
+auto_create = false
+
+# Additional skill search paths
+# search_paths = ["/path/to/custom/skills"]
+
+[web]
+host = "0.0.0.0"
+port = 8000
+
+# -- Channels --
+# Enable only the channels you need.
+# Each channel requires specific environment variables (see .env.example).
+
+[channels.slack]
+enabled = false
+# bot_token_env = "SLACK_BOT_TOKEN"
+# app_token_env = "SLACK_APP_TOKEN"
+
+[channels.discord]
+enabled = false
+# bot_token_env = "DISCORD_BOT_TOKEN"
+
+[channels.telegram]
+enabled = false
+# bot_token_env = "TELEGRAM_BOT_TOKEN"
+
+[channels.webhook]
+enabled = false
+# secret = "your-webhook-secret"
+
+[channels.email]
+enabled = false
+# poll_interval = 30
+
+[channels.whatsapp]
+enabled = false
+# verify_token = "metaclaw-verify"
+
+[channels.wechat]
+enabled = false
+
+[channels.line]
+enabled = false
+
+[channels.twilio]
+enabled = false
+
+[channels.google_chat]
+enabled = false
+
+[channels.teams]
+enabled = false
+
+[channels.zoom]
+enabled = false

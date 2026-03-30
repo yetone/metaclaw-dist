@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metaclaw"
+version = "0.1.0"
+description = "Skill-first LLM agent platform with multi-channel bridging"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "MetaClaw Team" }]
+keywords = ["llm", "agent", "chatbot", "skills", "multi-channel"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "litellm>=1.40",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "typer[all]>=0.12",
+    "rich>=13.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "sqlmodel>=0.0.16",
+    "toml>=0.10",
+    "pyyaml>=6.0",
+    "diff-match-patch>=20230430",
+    "python-dotenv>=1.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+slack = ["slack-sdk>=3.27"]
+discord = ["discord.py>=2.3"]
+telegram = ["python-telegram-bot>=21.0"]
+wechat = ["wechatpy>=1.8"]
+line = ["line-bot-sdk>=3.5"]
+whatsapp = ["httpx"]
+email = ["aiosmtplib>=3.0", "aioimaplib>=1.1"]
+twilio = ["twilio>=9.0"]
+google-chat = ["google-auth>=2.29", "httpx"]
+teams = ["botbuilder-core>=4.16"]
+zoom = ["httpx"]
+all-channels = [
+    "metaclaw[slack,discord,telegram,wechat,line,whatsapp,email,twilio,google-chat,teams,zoom]",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.3",
+    "mypy>=1.9",
+]
+
+[project.scripts]
+metaclaw = "metaclaw.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
