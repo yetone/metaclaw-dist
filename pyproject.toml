@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "metaclaw"
+name = "metaclaw-ai"
 version = "0.1.0"
 description = "Skill-first LLM agent platform with multi-channel bridging"
 readme = "README.md"

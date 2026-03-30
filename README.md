@@ -11,7 +11,7 @@ Skill-first LLM agent platform with multi-channel bridging. MetaClaw is a self-i
 
 ```bash
 # Install
-pip install metaclaw
+pip install metaclaw-ai
 
 # Interactive setup wizard
 metaclaw init
